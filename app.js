@@ -6,7 +6,7 @@ var bodyParser  = require("body-parser"),
     request     = require("request"),
     help        = require("./healper.js");
 
-mongoose.connect("mongodb://localhost/yelp_camp");
+//mongoose.connect("mongodb://localhost/yelp_camp");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -30,13 +30,12 @@ app.get("/", function(req, res){
             let matchlists = JSON.parse(body);
 
             // Alter MatchList Object so Landing view can use summoner names instead of IDs
+            console.log(matchlists);
 
             for(var i = 0; i < matchlists.matches.length; i++){
                 
                 matchlists.matches[i].champion = help.champNumToName(matchlists.matches[i].champion)
             }
-
-            console.log(JSON.stringify(matchlists))
 
             res.render("landing.ejs", {summoner: summoner, match: matchlists});
         });

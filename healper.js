@@ -25,7 +25,7 @@ var champNumToName = function(num){
                 case 27:    return "Singed";
                 case 86:    return "Garen";
                 case 127:   return "Lissandra";
-                case 57:    return "Maikai";
+                case 57:    return "Maokai";
                 case 25:    return "Morgana";
                 case 28:    return "Evelynn";
                 case 105:   return "Fizz";
@@ -93,7 +93,7 @@ var champNumToName = function(num){
                 case 19:    return "Warwick";
                 case 72:    return "Skarner";
                 case 54:    return "Malphite";
-                case 157:   return "Yasup";
+                case 157:   return "Yasuo";
                 case 101:   return "Xerath";
                 case 17:    return "Teemo";
                 case 75:    return "Nasus";
@@ -108,7 +108,7 @@ var champNumToName = function(num){
                 case 61:    return "Orianna";
                 case 114:   return "Fiora";
                 case 9:     return "Fiddlesticks";
-                case 31:    return "ChoGath";
+                case 31:    return "Chogath";
                 case 33:    return "Rammus";
                 case 7:     return "Leblanc";
                 case 16:    return "Soraka";
@@ -136,9 +136,17 @@ var champNumToName = function(num){
                 case 267:   return "Nami";
                 case 59:    return "JarvanIV";
                 case 81:    return "Ezreal";
+                case 164:   return "Canukke";
+                case 497:   return "Rakan";
+                case 498:   return "Xayah";
+                case 141:   return "Kayn";
+                case 516:   return "Ornn";
+                case 142:   return "Zoe";
+                case 145:   return "Kaisa";
+                case 555:   return "Pyke";
 
                 default:
-                    return "ERROR";
+                    return num;
             };
 };
 
