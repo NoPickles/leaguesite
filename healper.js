@@ -136,7 +136,7 @@ var champNumToName = function(num){
                 case 267:   return "Nami";
                 case 59:    return "JarvanIV";
                 case 81:    return "Ezreal";
-                case 164:   return "Canukke";
+                case 164:   return "Camille";
                 case 497:   return "Rakan";
                 case 498:   return "Xayah";
                 case 141:   return "Kayn";

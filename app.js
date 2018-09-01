@@ -30,7 +30,6 @@ app.get("/", function(req, res){
             let matchlists = JSON.parse(body);
 
             // Alter MatchList Object so Landing view can use summoner names instead of IDs
-            console.log(matchlists);
 
             for(var i = 0; i < matchlists.matches.length; i++){
                 
