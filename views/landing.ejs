@@ -1,0 +1,29 @@
+<% include partials/header %>
+
+
+
+<div class="card">
+    <div class="card-body">
+        <img class="rounded-circle" src="/media/img/profileicon/<%= summoner.profileIconId %>.png" alt="Circle image">
+        <h4 class="card-title"><%= summoner.name %></h4>
+        <h6 class="card-subtitle mb-2 text-muted">Sum lv: <%= summoner.summonerLevel%></h6>
+        <p class="card-text">
+        Wow yee some stuff
+        mistys biycle
+        </p>
+    </div>
+</div>
+
+<div class="card">
+    <ul class="list-group list-group-flush">    
+        <% for(var i=0; i < 10; i++){ %>
+            <li class="list-group-item"><%= match.matches[i].champion %></li>
+        <% } %>
+    </ul>
+</div>
+  
+
+
+
+<% include partials/footer %>
+
