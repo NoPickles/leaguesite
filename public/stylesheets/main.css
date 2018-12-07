@@ -1,5 +1,9 @@
 
+img {
+    width: 50px;
+}
 
-img.rounded-circle {
-    width: 5em;
+.media {
+    border: 2px;
+    border-radius: 8px;
 }

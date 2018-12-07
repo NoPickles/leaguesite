@@ -1,29 +1,9 @@
 <% include partials/header %>
 
 
+<canvas id="myChart" width="400" height="400"></canvas>
 
-<div class="card">
-    <div class="card-body">
-        <img class="rounded-circle" src="https://ddragon.leagueoflegends.com/cdn/8.17.1/img/profileicon/<%= summoner.profileIconId %>.png" alt="Circle image">
-        <h4 class="card-title"><%= summoner.name %></h4>
-        <h6 class="card-subtitle mb-2 text-muted">Sum lv: <%= summoner.summonerLevel%></h6>
-        <p class="card-text">
-        Wow yee some stuff
-        mistys biycle
-        </p>
-    </div>
-</div>
  
-<% for(var i=0; i < 50; i++){ %>
-    <div class="media">
-        <img src="https://ddragon.leagueoflegends.com/cdn/8.17.1/img/champion/<%= match.matches[i].champion %>.png" alt="Champion image" class="d-flex mr-3 w-5 h-5">
-        <div class="media-body">
-            <h5 class="mt-0"><%= match.matches[i].champion %></h5>
-        </div>
-    </div>
-
-<% } %>
-
 
 
 

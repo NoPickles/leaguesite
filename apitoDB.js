@@ -1,6 +1,5 @@
 var request     = require("request"),
     mongoose    = require("mongoose"),
-    help        = require("./healper.js"),
     config      = require('./config.js'),
     Rank        = require("./models/lphistory");
 
