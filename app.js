@@ -4,7 +4,7 @@ var app         = express();
 var bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
     request     = require("request"),
-    League      = require("./models/lphistory"),
+    Rank        = require("./models/lphistory"),
     help        = require("./healper.js");
 
 
@@ -19,13 +19,13 @@ app.get("/", function(req, res){
     res.render("landing");
 });
 
-app.get("/league", function(req, res){
+app.get("/rank", function(req, res){
     // For Ajax call
-    League.find({}, function(err, allLeague){
+    Rank.find({}, function(err, allRank){
         if(err){
             console.log(err);
         } else {
-            res.send(JSON.stringify(allLeague));
+            res.send(JSON.stringify(allRank));
         }
     });
 });

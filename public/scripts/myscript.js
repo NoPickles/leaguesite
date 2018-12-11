@@ -55,7 +55,7 @@ var myLineChart = new Chart(ctx, {
 function makeGetCall(callback){
     $.ajax({
         type: 'GET',
-        url:  "http://localhost:3000/league",
+        url:  "http://localhost:3000/rank",
         dataType: "json",
         contentType: "application/json;charset=utf-8",
         success: function(data){
