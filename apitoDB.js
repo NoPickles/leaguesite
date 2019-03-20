@@ -8,11 +8,8 @@ key = config.key;
 
 mongoose.connect("mongodb://localhost/leaguesite");
 
-
 //TODO change account Id to mongoose db get. 
-var accountID = ['Z0aWnceXT3pE5ZYTTFrcP2IGwHjwVWWdHgbs3c3I9mB2qA', '7NbeYYUFBlPRg9w1274AEGb3rFPnKmfN0SZOE1LIkg', 'fAdYcMvFWZjqXHZIeMCp8gHznCwSrgQjTbdBzw6DcC4lplo'];
-
-
+var accountID = ['Z0aWnceXT3pE5ZYTTFrcP2IGwHjwVWWdHgbs3c3I9mB2qA', '3MVblDOmQEBOKDn5FR9eSbTJ8ijMr8YB1PQJZ5ijcdRt6OQ', '7NbeYYUFBlPRg9w1274AEGb3rFPnKmfN0SZOE1LIkg', 'fAdYcMvFWZjqXHZIeMCp8gHznCwSrgQjTbdBzw6DcC4lplo'];
 
 var leagueInfotoDB = function(accountArray){
     for (let i = 0; i < accountArray.length; i++){
@@ -43,13 +40,9 @@ var summonerInfo = function(ID){
 var leagueInfo = function(newLeagueinfo){
     var promise = new Promise(function(resolve, reject){
         request('https://na1.api.riotgames.com/lol/league/v4/positions/by-summoner/' + newLeagueinfo.summonerID + '?api_key=' + key, function(error, response, body){
-            var league = (JSON.parse(body))[0];
+            var league = JSON.parse(body);
 
-            newLeagueinfo.tier          = league.tier;
-            newLeagueinfo.rank          = league.rank;
-            newLeagueinfo.wins          = league.wins;
-            newLeagueinfo.losses        = league.losses;
-            newLeagueinfo.leaguePoints  = league.leaguePoints;
+            newLeagueinfo.league = league;
             
             resolve(newLeagueinfo);
         });
@@ -65,13 +58,11 @@ var matchInfo = function(newLeagueinfo){
         request('https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/' + newLeagueinfo.summonerAccountId + '?api_key=' + key + '&queue=420' + '&endTime=' + timeNow + '&beginTime=' + time24hrsAgo, function(error, response, body){
             var matchlists = JSON.parse(body);
 
-            console.log('statusCode:', response && response.statusCode);
+            console.log('statusCode:', response.statusCode);
 
-            if (response.statusCode === 200) {
-                newLeagueinfo.season  = matchlists.matches[0].season;  
+            if (response.statusCode === 200) {  
                 newLeagueinfo.matches = matchlists.matches;
             } else {
-                newLeagueinfo.season  = 0;  
                 newLeagueinfo.matches = [];
             }
             //Add match data to newLeagueinfo so we can save to db at end of promise chain
@@ -88,9 +79,9 @@ var saveDB = function(newLeagueinfo){
 
     league.save(function(err, league){
         if(err) return console.error(err);
-        console.log(league.summonerName);
+        console.log(league);
     });
 };
 
-setInterval(() => leagueInfotoDB(accountID), 4000);
+setInterval(() => leagueInfotoDB(accountID), 3600000);
 
