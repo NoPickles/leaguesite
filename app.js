@@ -7,12 +7,13 @@ var bodyParser  = require("body-parser"),
     Rank        = require("./models/lphistory"),
     help        = require("./healper.js");
 
+mongoose.connect("mongodb://localhost/leaguesite");
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/media/img"));
-
 
 
 app.get("/", function(req, res){
@@ -21,7 +22,7 @@ app.get("/", function(req, res){
 
 app.get("/rank", function(req, res){
     // For Ajax call
-    Rank.find({}, function(err, allRank){
+    Rank.find({summonerName: "scarra"}, function(err, allRank){
         if(err){
             console.log(err);
         } else {

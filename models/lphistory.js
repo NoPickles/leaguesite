@@ -5,12 +5,7 @@ var leaguepointsSchema = new mongoose.Schema({
     summonerID          : String,
     summonerAccountId   : String,
     summonerIcon        : Number,
-    tier                : String,
-    rank                : String,
-    season              : Number,
-    wins                : Number,
-    losses              : Number,
-    leaguePoints        : Number,
+    league              : Array,
     matches             : Array,
     date                : String
 });
