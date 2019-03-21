@@ -83,5 +83,5 @@ var saveDB = function(newLeagueinfo){
     });
 };
 
-setInterval(() => leagueInfotoDB(accountID), 5000);
+setInterval(() => leagueInfotoDB(accountID), 3600000);
 
